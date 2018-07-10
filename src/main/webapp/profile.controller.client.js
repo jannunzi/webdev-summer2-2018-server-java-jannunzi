@@ -13,8 +13,10 @@
 
     $updateBtn.click(updateUser);
 
-    findUserById(7)
-      .then(renderUser)
+    // findUserById(7)
+    //   .then(renderUser)
+    profile()
+      .then(renderUser);
   }
   init();
   
@@ -39,6 +41,15 @@
     $username.val(user.username);
     $firstName.val(user.firstName);
     $lastName.val(user.lastName);
+  }
+
+  function profile() {
+    return fetch('/profile', {
+      'credentials': 'include'
+    })
+    .then(function (response) {
+      return response.json();
+    });
   }
 
   function findUserById(userId) {

@@ -32,14 +32,17 @@ public class UserService {
 		return cu;
 	}
 	
-	@GetMapping("/checkLogin")
-	public User checkLogin(HttpSession session) {
-		return (User) session.getAttribute("currentUser");
+	@GetMapping("/profile")
+	public Optional<User> profile(HttpSession session) {
+		User currentUser = (User) session.getAttribute("currentUser");
+		return userRepository.findById(currentUser.getId());
 	}
 	
 	@PostMapping("/login")
-	public User login(@RequestBody User user) {
-		return userRepository.findUserByCredentials(user.getUsername(), user.getPassword());
+	public User login(@RequestBody User user, HttpSession session) {
+		user = userRepository.findUserByCredentials(user.getUsername(), user.getPassword());
+		session.setAttribute("currentUser", user);
+		return user;
 	}
 
 	
