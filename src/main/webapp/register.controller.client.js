@@ -26,8 +26,17 @@
       body: userObjStr,
       headers: {
         'Content-Type': 'application/json'
-      }
-    });
+      },
+      'credentials': 'include'
+    }).then(registrationSuccessful, registrationFailed)
 
+  }
+  
+  function registrationSuccessful() {
+    window.location.href = '/profile.template.client.html';
+  }
+
+  function registrationFailed() {
+    alert('oops')
   }
 })();
