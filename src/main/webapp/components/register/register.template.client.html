@@ -1,5 +1,9 @@
 <html>
     <head>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+              rel="stylesheet">
+        <link href="../../css/styles.css"
+              rel="stylesheet"/>
         <title>Registration Page</title>
     </head>
     <body>
@@ -10,6 +14,7 @@
                 Username
             </label>
             <input type="text"
+                   class="form-control wbdv"
                    placeholder="alice"
                    id="username"/>
         </div>
@@ -19,6 +24,7 @@
                 Password
             </label>
             <input type="password"
+                   class="form-control wbdv"
                    placeholder="1234qwerasdf"
                    id="password"/>
         </div>
@@ -28,13 +34,15 @@
                 Validate Password
             </label>
             <input type="password"
+                   class="form-control wbdv"
                    placeholder="1234qwerasdf"
                    id="password2"/>
         </div>
-        <button id="registerBtn">
+        <button class="btn btn-success"
+                id="registerBtn">
             Register
         </button>
-        <a href="login.template.client.html">
+        <a href="../login/login.template.client.html">
             Login
         </a>
 
