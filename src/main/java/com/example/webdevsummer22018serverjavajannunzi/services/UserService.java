@@ -32,9 +32,10 @@ public class UserService {
 		return cu;
 	}
 	
-	@GetMapping("/checkLogin")
-	public User checkLogin(HttpSession session) {
-		return (User) session.getAttribute("currentUser");
+	@GetMapping("/profile")
+	public Optional<User> profile(HttpSession session) {
+		User currentUser = (User) session.getAttribute("currentUser");
+		return userRepository.findById(currentUser.getId());
 	}
 	
 	@PostMapping("/login")
