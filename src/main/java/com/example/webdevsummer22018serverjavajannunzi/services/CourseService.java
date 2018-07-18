@@ -20,10 +20,15 @@ import com.example.webdevsummer22018serverjavajannunzi.repositories.CourseReposi
 public class CourseService {
 	@Autowired
 	CourseRepository courseRepository;
-	
+
 	@GetMapping("/api/course")
 	public List<Course> findAllCourses() {
 		return (List<Course>) courseRepository.findAll();
+	}
+
+	@GetMapping("/api/course/{courseId}")
+	public Optional<Course> findCourseById(@PathVariable("courseId") int id) {
+		return courseRepository.findById(id);
 	}
 	
 	@PostMapping("/api/course")
