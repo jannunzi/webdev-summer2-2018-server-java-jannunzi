@@ -26,6 +26,11 @@ public class CourseService {
 		return (List<Course>) courseRepository.findAll();
 	}
 	
+	@GetMapping("/api/course/{courseId}")
+	public Optional<Course> findCourseById(@PathVariable("courseId") int id) {
+		return courseRepository.findById(id);
+	}
+	
 	@PostMapping("/api/course")
 	public Course createCourse(
 			@RequestBody Course course) {
