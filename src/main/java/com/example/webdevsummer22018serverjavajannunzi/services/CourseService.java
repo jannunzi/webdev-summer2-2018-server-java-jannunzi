@@ -21,6 +21,11 @@ public class CourseService {
 	@Autowired
 	CourseRepository courseRepository;
 	
+	@PostMapping("/api/course/save")
+	public List<Course> saveWidgets(@RequestBody List<Course> courses) {
+		return courses;
+	}
+	
 	@GetMapping("/api/course")
 	public List<Course> findAllCourses() {
 		return (List<Course>) courseRepository.findAll();
